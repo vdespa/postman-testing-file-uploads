@@ -1,0 +1,60 @@
+{
+	"info": {
+		"name": "Upload-test",
+		"_postman_id": "6161e2b8-eee5-b863-af7f-cfbc23de8131",
+		"description": "",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "localhost:8080/upload",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "7858e6cc-341b-4142-9d1e-08dcec921c78",
+						"type": "text/javascript",
+						"exec": [
+							"pm.test(\"Check status code\", function () {",
+							"    pm.response.to.have.status(pm.variables.get('statusCode'));",
+							"});",
+							"",
+							"pm.test(\"Upload status\", function () {",
+							"    var jsonData = pm.response.json();",
+							"    pm.expect(jsonData.status).to.eql(pm.variables.get('status'));",
+							"    pm.expect(jsonData.file).to.eql(pm.variables.get('expectedFileName'));",
+							"});"
+						]
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "file",
+							"description": "",
+							"type": "file",
+							"src": "{{fileName}}"
+						}
+					]
+				},
+				"url": {
+					"raw": "localhost:8080/upload",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"upload"
+					]
+				},
+				"description": ""
+			},
+			"response": []
+		}
+	]
+}

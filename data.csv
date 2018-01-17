@@ -1,0 +1,5 @@
+fileName, expectedFileName, status, statusCode
+file1.txt, file1.txt, success, 200
+file2.png, file2.png, success, 200
+file3.jpg, file3.jpg, success, 200
+file4.jpg, undefined, 500, 500

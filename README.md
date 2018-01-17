@@ -8,8 +8,10 @@ A sample postman collection showing how you can tests
 2. Edit the data.csv file and change the file names. file1.txt is provided as a sample
 3. Edit the collection, make sure the address and the endpoint are right. Also check that the parameter is file.
 4. Run the collection
-  a. with Newman installed locally
+
+a. with Newman installed locally
     `newman run collection.json --iteration-data data.csv`
-  b. with Docker
+
+b. with Docker
     `docker run -v $PWD:/etc/newman -t postman/newman_ubuntu1404 run collection.json --iteration-data data.csv`
   
